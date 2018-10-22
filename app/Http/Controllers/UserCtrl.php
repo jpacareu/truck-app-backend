@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Constant;
+use Log;
 
 class UserCtrl extends Controller
 {
