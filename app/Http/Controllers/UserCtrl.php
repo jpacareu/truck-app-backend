@@ -10,14 +10,15 @@ class UserCtrl extends Controller
 {
     public function index(Request $request)
     {
-      $localCode = $request->get('localCode');
-    	$phoneNumber = $request->get('phoneNumber');
-			$user = User::where(['phoneNumber' => $phoneNumber,'localCode' => $localCode ]);
-			return [
-					'status' => Constant::SUCCESS, 
-					'phoneExist' => $user->count() > 0,
-					'userInfo' => $user->first()
-				];
+		$localCode = $request->get('localCode');
+		$phoneNumber = $request->get('phoneNumber');
+		$user = User::where(['phoneNumber' => $phoneNumber,'localCode' => $localCode ]);
+		Log::info('User asked for information');
+		return [
+				'status' => Constant::SUCCESS, 
+				'phoneExist' => $user->count() > 0,
+				'userInfo' => $user->first()
+			];
     }
 
     public function newUser(Request $request)
